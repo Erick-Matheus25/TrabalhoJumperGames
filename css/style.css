@@ -1,0 +1,81 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+
+    background: url('../fundo.png') center center / cover no-repeat fixed;
+}
+/* TOPO */
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.logo {
+    width: 60px;
+    filter: drop-shadow(0 0 10px #00ffcc);
+}
+
+/* TÍTULOS */
+h1 {
+    text-shadow: 0 0 10px #00ffcc;
+    margin: 0;
+}
+
+.topo h1 {
+    text-shadow: 0 0 12px #00ffcc;
+}
+
+.subtitulo {
+    opacity: 0.75;
+    margin-top: 5px;
+}
+
+
+.games {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+/* CARD DOS JOGOS */
+.card {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,255,204,0.25);
+    backdrop-filter: blur(6px);
+
+    padding: 25px;
+    border-radius: 20px;
+    width: 220px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #00ffcc;
+}
+
+
+.img-btn {
+    width: 100px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.img-btn:hover {
+    transform: scale(1.2);
+}
+
+/* ÁREA DO JOGO */
+#areaJogo {
+    margin-top: 30px;
+}
