@@ -224,7 +224,7 @@ function abrirJogo(jogo){
       <img
         id="cenarioBg"
         class="cenario-bg"
-        src="./quarto-escuro.png">
+        src="./quartoescuro.png">
 
 
       <div class="lampada-box">
@@ -245,7 +245,7 @@ function abrirJogo(jogo){
         <img
           id="tomada"
           class="tomada-img"
-          src="./tomada-off.png"
+          src="./tomadadesligada.png"
           onclick="alternarLuz()">
 
 
@@ -877,5 +877,6 @@ function mostrarVictory(){
 
 
   },2000);
-}
 
+
+}

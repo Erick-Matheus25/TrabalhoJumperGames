@@ -1,4 +1,4 @@
- 
+ css
 
 
 *{
@@ -334,6 +334,160 @@ body{
     1px solid rgba(0,255,255,0.3);
 
 
+}
+
+.cofrinho-box{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:16px;
+  border:1px solid rgba(0,255,255,0.2);
+  border-radius:18px;
+  background:rgba(255,255,255,0.05);
+  margin-bottom:16px;
+}
+
+.cofrinho-img{
+  width:120px;
+  height:120px;
+  position:relative;
+  border-radius:24px;
+  background:rgba(255,255,255,0.08);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:inset 0 0 20px rgba(255,255,255,0.1);
+  overflow:hidden;
+}
+
+.cofrinho-img img{
+  width:100%;
+  height:auto;
+}
+
+.cofrinho-slot{
+  position:absolute;
+  top:22px;
+  left:50%;
+  transform:translateX(-50%);
+  width:44px;
+  height:10px;
+  background:rgba(0,0,0,0.35);
+  border-radius:999px;
+  z-index:2;
+}
+
+.cofrinho-coin{
+  position:absolute;
+  top:-32px;
+  left:50%;
+  transform:translateX(-50%) scale(0.8);
+  width:58px;
+  height:28px;
+  border-radius:999px;
+  background:radial-gradient(circle at 40% 30%, #ffd83b, #e0a600);
+  color:#3a2200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:700;
+  opacity:0;
+  box-shadow:0 6px 18px rgba(0,0,0,0.18);
+  transition:transform 0.9s cubic-bezier(0.24, 1, 0.35, 1), opacity 0.9s ease;
+}
+
+.cofrinho-coin.drop{
+  transform:translateX(-50%) translateY(120px) scale(0.65);
+  opacity:1;
+}
+
+.cofrinho-display{
+  flex:1;
+  text-align:left;
+}
+
+.cofrinho-total{
+  font-size:28px;
+  font-weight:bold;
+  color:#00ffb8;
+  margin-bottom:10px;
+}
+
+.cofrinho-progress{
+  width:100%;
+  height:14px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.12);
+  overflow:hidden;
+  margin-bottom:10px;
+}
+
+.cofrinho-progress span{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg, #00ffea, #00aaff);
+  transition:width 0.3s ease;
+}
+
+.cofrinho-counts{
+  display:grid;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:8px;
+  font-size:14px;
+  color:#c6f3ff;
+}
+
+.cofrinho-actions,
+.cofrinho-sacar,
+.cofrinho-footer{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:14px;
+}
+
+.cofrinho-actions button,
+.cofrinho-sacar button,
+.btn-secondary{
+  padding:12px 18px;
+  border:none;
+  border-radius:14px;
+  color:white;
+  cursor:pointer;
+  background:linear-gradient(90deg, #00aaff, #ff00ff);
+  transition:transform 0.2s ease, filter 0.2s ease;
+}
+
+.cofrinho-actions button:hover,
+.cofrinho-sacar button:hover,
+.btn-secondary:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.1);
+}
+
+.cofrinho-sacar input{
+  flex:1;
+  min-width:160px;
+  padding:12px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.2);
+  background:rgba(255,255,255,0.06);
+  color:white;
+}
+
+.cofrinho-msg{
+  min-height:24px;
+  color:#fff;
+  opacity:0.7;
+  transition:opacity 0.25s ease;
+}
+
+.cofrinho-msg.ativo{
+  opacity:1;
+  color:#00ff99;
 }
 
 
@@ -849,88 +1003,33 @@ body.claro{
 
 
 .cenario-bg{
-
-
-  width:100%;
-
-
-  height:100%;
-
-
-  object-fit:cover;
-
-
-  transition:0.5s;
-
-
-}
-
-
-.lampada-box{
-
-
   position:absolute;
-
-
-  top:30px;
-
-
-  left:50%;
-
-
-  transform:translateX(-50%);
-
-
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:filter 0.35s ease, opacity 0.35s ease;
+  filter:brightness(0.9) contrast(1.03) saturate(0.98);
+  z-index:0;
 }
 
-
-.lampada-img{
-
-
-  width:140px;
-
-
-  transition:
-    opacity 0.4s,
-    transform 0.4s,
-    filter 0.4s;
-
-
+.cenario-luz::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.18);
+  pointer-events:none;
+  transition:background 0.35s ease;
+  z-index:1;
 }
 
-
-body.escuro .lampada-img{
-
-
-  filter:brightness(0.6);
-
-
+body.claro .cenario-bg{
+  filter:brightness(1.15) contrast(1.05) saturate(1.05);
 }
 
-
-body.claro .lampada-img{
-
-
-  filter:brightness(1.2)
-         drop-shadow(0 0 25px #ffee00);
-
-
+body.claro .cenario-luz::after{
+  background:rgba(255,255,255,0.02);
 }
-
-
-.fade-lampada{
-
-
-  opacity:0.3;
-
-
-  transform:
-    scale(0.92)
-    rotate(5deg);
-
-
-}
-
 
 .tomada-box{
 
@@ -1039,3 +1138,5 @@ body.claro .lampada-img{
 
 
 }
+
+
